@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+&nbsp;   <title>WUWA!<center> tag</title>
+
+&nbsp;   </head>
+
+&nbsp; <body> 
+
+&nbsp; <center> 
+
+&nbsp; <p style="color: #107C10"> New Resonators </p>
+
+&nbsp; </center>
+
+&nbsp; <center>
+
+&nbsp; <p> 
+
+&nbsp; <span style="color: purple;">Cantarella</span>
+
+&nbsp; <span style="color: lightblue;"> Cartethyia</span>
+
+</p>
+
+</center>
+
+</body>
+
+# 
+
