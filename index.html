@@ -48,6 +48,75 @@
             <p>
               Welcome to Chisa's cafe! A sweet aroma and nice cafe is all you need in your day! 
             </p>
+            <!-- Countdown Inside Image -->
+<div class="countdown-overlay">
+  <div class="timer" id="timer">Loading...</div>
+  <div class="label">@nipaaaahhh • Philippines</div>
+</div>
+
+<style>
+  .countdown-overlay {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 20px auto;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    background: url('yangyang.png') center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+  }
+
+  .timer {
+    font-size: 2rem;
+    font-weight: bold;
+    background: rgba(0,0,0,0.5);
+    padding: 10px 20px;
+    border-radius: 12px;
+    backdrop-filter: blur(5px);
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+    min-width: 200px;
+  }
+
+  .label {
+    font-size: 0.9rem;
+    background: rgba(0,0,0,0.4);
+    padding: 6px 14px;
+    border-radius: 20px;
+    backdrop-filter: blur(3px);
+  }
+
+  /* Responsive */
+  @media (max-width: 480px) {
+    .countdown-overlay { width: 250px; height: 250px; }
+    .timer { font-size: 1.5rem; padding: 8px 16px; }
+  }
+</style>
+
+<script>
+  const target = new Date('2025-12-25T00:00:00+08:00'); // Dec 25, 2025 - PH Time
+  const timer = document.getElementById('timer');
+
+  setInterval(() => {
+    const diff = target - Date.now();
+    if (diff <= 0) {
+      timer.innerHTML = 'Started!';
+      return;
+    }
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    timer.innerHTML = `${d}d ${h}h ${m}m ${s}s`;
+  }, 1000);
+</script>
           </div>
           
           <div id="about" class="content-region hide">
