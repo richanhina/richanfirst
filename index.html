@@ -86,19 +86,62 @@
             <p>
              MY facebook:
               my insta:
-              <div id="countdown"></div>
+<!-- Countdown with Profile Picture -->
+<div class="nipaaaahhh-countdown">
+  <img src="yangyang.png" alt="Yangyang" class="profile-pic">
+  <div class="info">
+    <strong>@nipaaaahhh</strong> • Philippines
+  </div>
+  <div id="countdown-timer">Loading...</div>
+</div>
+
+<style>
+  .nipaaaahhh-countdown {
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: rgba(0,0,0,0.1);
+    padding: 15px;
+    border-radius: 12px;
+    max-width: 300px;
+    margin: 20px auto;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  .profile-pic {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ffd700;
+    margin-bottom: 10px;
+  }
+  .info {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 8px;
+  }
+  #countdown-timer {
+    font-weight: bold;
+    font-size: 1.3rem;
+    color: #d32f2f;
+    letter-spacing: 1px;
+  }
+</style>
 
 <script>
-  const target = new Date('2025-12-25T00:00:00');
-  const cd = document.getElementById('countdown');
+  const target = new Date('2025-12-25T00:00:00+08:00'); // PH Time (UTC+8)
+  const timer = document.getElementById('countdown-timer');
+
   setInterval(() => {
     const diff = target - Date.now();
-    if (diff <= 0) return cd.innerHTML = 'Started!';
-    const d = Math.floor(diff / 864e5);
-    const h = Math.floor(diff % 864e5 / 36e5);
-    const m = Math.floor(diff % 36e5 / 6e4);
-    const s = Math.floor(diff % 6e4 / 1e3);
-    cd.innerHTML = `${d}d ${h}h ${m}m ${s}s`;
+    if (diff <= 0) {
+      timer.innerHTML = 'Started!';
+      return;
+    }
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    timer.innerHTML = `${d}d ${h}h ${m}m ${s}s`;
   }, 1000);
 </script>
       </div>
