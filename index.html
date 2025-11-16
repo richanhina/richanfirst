@@ -86,7 +86,149 @@
             <p>
              MY facebook:
               my insta:
-            </p>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), 
+                    url('https://images.unsplash.com/photo-1512389142860-9c449e58a543?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat fixed;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .header {
+      margin-bottom: 30px;
+    }
+
+    .handle {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: #ffd700;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    }
+
+    .country {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      margin-top: 8px;
+    }
+
+    .countdown {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 30px 0;
+    }
+
+    .block {
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 18px 22px;
+      min-width: 90px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      transition: transform 0.2s;
+    }
+
+    .block:hover {
+      transform: translateY(-5px);
+    }
+
+    .block span {
+      display: block;
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 600;
+      line-height: 1;
+    }
+
+    .label {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-top: 6px;
+      opacity: 0.9;
+    }
+
+    .finished {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2rem;
+      color: #ff5555;
+      margin-top: 20px;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+
+    @media (max-width: 600px) {
+      .handle { font-size: 2rem; }
+      .block span { font-size: 2.2rem; }
+      .countdown { gap: 15px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="handle">@nipaaaahhh</div>
+    <div class="country>Philippines 🇵🇭</div>
+  </div>
+
+  <div class="countdown" id="timer">
+    <div class="block"><span id="days">00</span><div class="label">Days</div></div>
+    <div class="block"><span id="hours">00</span><div class="label">Hours</div></div>
+    <div class="block"><span id="minutes">00</span><div class="label">Minutes</div></div>
+    <div class="block"><span id="seconds">00</span><div class="label">Seconds</div></div>
+  </div>
+
+  <footer>Countdown to Christmas 2025 • Live in PH Time</footer>
+
+  <script>
+    // ---- CHANGE THIS DATE ----
+    const targetDate = new Date('2025-12-25T00:00:00'); // Christmas 2025 (PH time)
+    // --------------------------
+
+    const daysEl    = document.getElementById('days');
+    const hoursEl   = document.getElementById('hours');
+    const minutesEl = document.getElementById('minutes');
+    const secondsEl = document.getElementById('seconds');
+    const timerEl   = document.getElementById('timer');
+
+    function update() {
+      const now = new Date();
+      const diff = targetDate - now;
+
+      if (diff <= 0) {
+        timerEl.innerHTML = '<div class="finished">🎄 Event Started! 🎄</div>';
+        return;
+      }
+
+      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+      daysEl.textContent    = String(d).padStart(2, '0');
+      hoursEl.textContent   = String(h).padStart(2, '0');
+      minutesEl.textContent = String(m).padStart(2, '0');
+      secondsEl.textContent = String(s).padStart(2, '0');
+    }
+
+    update();
+    setInterval(update, 1000);
+  </script>
           </div>
           
         </div>
