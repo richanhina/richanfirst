@@ -13,7 +13,12 @@ body {
   font-family: "Roboto", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #FFFFFF;
 }
-
+@media (max-width: 600px) {
+  .img-with-text, .img-with-caption {
+    display: block;
+    margin: 10px 0;
+  }
+}
 /**
  * Links
  */
